@@ -1,0 +1,45 @@
+.tf-options {
+  display: flex;
+  gap: 12px;
+}
+
+.tf-option {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tf-option:not(:disabled):hover {
+  border-color: var(--exercise-accent);
+}
+.tf-option:disabled {
+  cursor: default;
+}
+
+.tf-option--selected {
+  border-color: var(--exercise-accent);
+  background: color-mix(in srgb, var(--exercise-accent) 12%, transparent);
+}
+.tf-option--correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-soft);
+  color: var(--color-correct);
+}
+.tf-option--wrong {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect-soft);
+  color: var(--color-incorrect);
+}
+
+@media (max-width: 440px) {
+  .tf-options {
+    flex-direction: column;
+  }
+}

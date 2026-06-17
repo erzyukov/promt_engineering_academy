@@ -1,0 +1,47 @@
+.ftb-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 2.1;
+}
+
+.ftb-blank {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.ftb-input {
+  font: inherit;
+  font-size: 15px;
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 2px solid var(--exercise-accent);
+  background: color-mix(in srgb, var(--exercise-accent) 7%, transparent);
+  border-radius: 4px 4px 0 0;
+  color: var(--color-text);
+  outline: none;
+}
+.ftb-input:focus {
+  background: color-mix(in srgb, var(--exercise-accent) 14%, transparent);
+}
+.ftb-input:disabled {
+  cursor: default;
+}
+
+.ftb-input--correct {
+  border-bottom-color: var(--color-correct);
+  background: var(--color-correct-soft);
+  color: var(--color-correct);
+}
+.ftb-input--wrong {
+  border-bottom-color: var(--color-incorrect);
+  background: var(--color-incorrect-soft);
+  color: var(--color-incorrect);
+  text-decoration: line-through;
+}
+
+.ftb-correction {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-correct);
+}

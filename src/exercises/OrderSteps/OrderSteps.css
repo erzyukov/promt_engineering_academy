@@ -1,0 +1,98 @@
+.order-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+.order-item--dragging {
+  opacity: 0.85;
+  border-color: var(--exercise-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.order-item__num {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--exercise-accent) 14%, transparent);
+  color: var(--exercise-accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.order-item__handle {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: grab;
+  touch-action: none;
+}
+.order-item__handle:active {
+  cursor: grabbing;
+}
+.order-item__handle--static {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.order-item__text {
+  flex: 1;
+  font-size: 15px;
+}
+
+.order-item__moves {
+  display: inline-flex;
+  gap: 2px;
+}
+.order-item__moves button {
+  display: inline-flex;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 6px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.order-item__moves button:not(:disabled):hover {
+  border-color: var(--exercise-accent);
+  color: var(--exercise-accent);
+}
+.order-item__moves button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.order-item--correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-soft);
+}
+.order-item--correct .order-item__num {
+  background: var(--color-correct);
+  color: #fff;
+}
+.order-item--wrong {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect-soft);
+}
+.order-item--wrong .order-item__num {
+  background: var(--color-incorrect);
+  color: #fff;
+}

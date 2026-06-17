@@ -1,9 +1,20 @@
+.mc-hint {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
 .mc-options {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: 10px;
+}
+
+/* квадратные маркеры для множественного выбора */
+.mc-options--multi .mc-option__marker {
+  border-radius: 5px;
 }
 
 .mc-option {
@@ -72,4 +83,13 @@
 .mc-option--wrong .mc-option__marker {
   border-color: var(--color-incorrect);
   background: var(--color-incorrect);
+}
+/* верный вариант, который не отметили (только в multi) */
+.mc-option--missed {
+  border-color: var(--color-correct);
+  border-style: dashed;
+}
+.mc-option--missed .mc-option__marker {
+  border-color: var(--color-correct);
+  border-style: dashed;
 }
