@@ -5,6 +5,8 @@ export interface ArticleMeta {
   order: number;
   /** Ориентировочное время чтения, минуты */
   readingTime: number;
+  /** id финального теста статьи — для отметки прогресса. */
+  quizId: string;
 }
 
 export const articles: ArticleMeta[] = [
@@ -15,6 +17,7 @@ export const articles: ArticleMeta[] = [
       'Токены, предсказание следующего слова и контекст — интуиция без математики.',
     order: 1,
     readingTime: 8,
+    quizId: 'quiz-how-llms-work',
   },
   {
     slug: 'prompt-structure',
@@ -23,6 +26,7 @@ export const articles: ArticleMeta[] = [
       'Роль, контекст, задача, формат и ограничения — из чего собран хороший промпт.',
     order: 2,
     readingTime: 9,
+    quizId: 'quiz-prompt-structure',
   },
   {
     slug: 'hallucinations',
@@ -30,6 +34,7 @@ export const articles: ArticleMeta[] = [
     summary: 'Откуда берутся выдумки, как их распознавать и проверять факты.',
     order: 3,
     readingTime: 7,
+    quizId: 'quiz-hallucinations',
   },
 ];
 

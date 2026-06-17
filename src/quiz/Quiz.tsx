@@ -1,8 +1,10 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
 import { QuizContext, type QuizContextValue } from '../exercises/core/QuizContext';
 import type { ExerciseResult } from '../exercises/core/types';
+import { saveQuizScore } from '../hooks/useLocalProgress';
 import { ProgressBar } from './ProgressBar';
 import { QuizSummary } from './QuizSummary';
+import { summarizeQuiz } from './scoring';
 import './Quiz.css';
 
 interface QuizProps {
@@ -15,7 +17,7 @@ interface QuizProps {
  * Тест-режим: оборачивает последовательность упражнений. Сами упражнения
  * не меняются — они регистрируются и шлют результаты через QuizContext.
  */
-export function Quiz({ title, children }: QuizProps) {
+export function Quiz({ id, title, children }: QuizProps) {
   const [order, setOrder] = useState<string[]>([]);
   const [results, setResults] = useState<Record<string, ExerciseResult>>({});
   const [finished, setFinished] = useState(false);
@@ -48,6 +50,11 @@ export function Quiz({ title, children }: QuizProps) {
   const total = order.length;
   const allAnswered = total > 0 && answeredCount === total;
 
+  const handleFinish = () => {
+    saveQuizScore(id, summarizeQuiz(order, results).pct);
+    setFinished(true);
+  };
+
   const handleRetry = () => {
     setResults({});
     setOrder([]);
@@ -72,7 +79,7 @@ export function Quiz({ title, children }: QuizProps) {
           <button
             type="button"
             className="btn btn--primary quiz__finish"
-            onClick={() => setFinished(true)}
+            onClick={handleFinish}
           >
             Показать результат
           </button>

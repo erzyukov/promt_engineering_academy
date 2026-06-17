@@ -204,6 +204,12 @@ h3 {
   transform: translateY(-2px);
 }
 
+.article-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 .article-card__order {
   display: inline-grid;
   place-items: center;
@@ -214,7 +220,17 @@ h3 {
   color: var(--color-primary-dark);
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 10px;
+}
+.article-card__done {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--color-correct-soft);
+  color: var(--color-correct);
+  font-size: 12px;
+  font-weight: 700;
 }
 .article-card__title {
   font-size: 19px;
@@ -318,5 +334,41 @@ h3 {
   }
   .header__brand span:last-child {
     display: none;
+  }
+}
+
+/* ============================================================
+   Доступность и анимации
+   ============================================================ */
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes pea-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.feedback,
+.quiz-summary {
+  animation: pea-fade-in 0.25s ease;
+}
+
+/* уважаем системную настройку «меньше движения» */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
