@@ -59,6 +59,12 @@ export function pairsMatch(
   return hits / keys.length;
 }
 
+/** Доля выполненных пунктов чек-листа (CaseStudy, PromptBuilder). */
+export function checklistScore(flags: boolean[]): number {
+  if (flags.length === 0) return 1;
+  return flags.filter(Boolean).length / flags.length;
+}
+
 /** Нормализация текстового ввода: трим, нижний регистр, ё→е, схлопывание пробелов. */
 export function normalizeText(value: string): string {
   return value.trim().toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ');

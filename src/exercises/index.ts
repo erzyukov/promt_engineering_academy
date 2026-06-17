@@ -3,3 +3,7 @@ export { TrueFalse } from './TrueFalse/TrueFalse';
 export { FillTheBlank } from './FillTheBlank/FillTheBlank';
 export { MatchPairs } from './MatchPairs/MatchPairs';
 export { OrderSteps } from './OrderSteps/OrderSteps';
+export { SpotTheHallucination } from './SpotTheHallucination/SpotTheHallucination';
+export { PromptBuilder } from './PromptBuilder/PromptBuilder';
+export { CaseStudy } from './CaseStudy/CaseStudy';
+export { PromptRefinementLadder } from './PromptRefinementLadder/PromptRefinementLadder';

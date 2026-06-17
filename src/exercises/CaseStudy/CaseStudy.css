@@ -1,0 +1,62 @@
+.cs-input {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  resize: vertical;
+  outline: none;
+}
+.cs-input:focus {
+  border-color: var(--exercise-accent);
+}
+.cs-input:disabled {
+  background: var(--color-bg);
+  cursor: default;
+}
+
+.cs-checklist {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.cs-criterion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+.cs-criterion--met {
+  color: var(--color-correct);
+  font-weight: 600;
+}
+
+.cs-reference {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+.cs-reference__title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+.cs-reference__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+}
