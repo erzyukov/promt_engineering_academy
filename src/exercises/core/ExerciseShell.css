@@ -1,0 +1,138 @@
+/* ============================================================
+   Корпус упражнения (общий для всех типов)
+   --exercise-accent задаётся каждым типом упражнения.
+   ============================================================ */
+.exercise {
+  --exercise-accent: var(--color-primary);
+  margin: 28px 0;
+  padding: 20px 22px 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--exercise-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.exercise__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--exercise-accent);
+}
+.exercise__icon {
+  display: inline-flex;
+}
+.exercise__type {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.exercise__prompt {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+.exercise__prompt p {
+  margin: 0;
+}
+
+.exercise__body {
+  margin-bottom: 16px;
+}
+
+.exercise__footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ============================================================
+   Кнопки
+   ============================================================ */
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:not(:disabled):hover {
+  background: var(--color-primary-dark);
+}
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+.btn--ghost:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+/* ============================================================
+   Блок обратной связи
+   ============================================================ */
+.feedback {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+.feedback__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.feedback__detail {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.feedback__explanation {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+.feedback .btn--ghost {
+  margin-top: 12px;
+}
+
+.feedback--correct {
+  background: var(--color-correct-soft);
+  border-color: color-mix(in srgb, var(--color-correct) 30%, transparent);
+}
+.feedback--correct .feedback__head {
+  color: var(--color-correct);
+}
+.feedback--partial {
+  background: var(--color-partial-soft);
+  border-color: color-mix(in srgb, var(--color-partial) 30%, transparent);
+}
+.feedback--partial .feedback__head {
+  color: var(--color-partial);
+}
+.feedback--incorrect {
+  background: var(--color-incorrect-soft);
+  border-color: color-mix(in srgb, var(--color-incorrect) 30%, transparent);
+}
+.feedback--incorrect .feedback__head {
+  color: var(--color-incorrect);
+}

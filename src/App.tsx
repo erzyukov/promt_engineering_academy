@@ -3,6 +3,7 @@ import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Article } from './pages/Article';
 import { About } from './pages/About';
+import { Playground } from './pages/Playground';
 import { NotFound } from './pages/NotFound';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="article/:slug" element={<Article />} />
         <Route path="about" element={<About />} />
+        <Route path="playground" element={<Playground />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

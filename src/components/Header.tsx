@@ -18,6 +18,10 @@ export function Header() {
           <NavLink to="/about" className={navClass}>
             О проекте
           </NavLink>
+          {/* Служебная страница разработки — демо компонентов (временная) */}
+          <NavLink to="/playground" className={navClass}>
+            Демо
+          </NavLink>
         </nav>
       </div>
     </header>

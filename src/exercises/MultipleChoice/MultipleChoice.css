@@ -1,0 +1,75 @@
+.mc-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.mc-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.mc-option:not(:disabled):hover {
+  border-color: var(--exercise-accent);
+}
+
+.mc-option__marker {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.mc-option__text {
+  flex: 1;
+}
+
+/* выбран (до проверки) */
+.mc-option--selected {
+  border-color: var(--exercise-accent);
+  background: var(--color-primary-soft);
+}
+.mc-option--selected .mc-option__marker {
+  border-color: var(--exercise-accent);
+  background: radial-gradient(
+    circle at center,
+    var(--exercise-accent) 0 5px,
+    transparent 6px
+  );
+}
+
+/* после проверки */
+.mc-option:disabled {
+  cursor: default;
+}
+.mc-option--correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-soft);
+}
+.mc-option--correct .mc-option__marker {
+  border-color: var(--color-correct);
+  background: var(--color-correct);
+}
+.mc-option--wrong {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect-soft);
+}
+.mc-option--wrong .mc-option__marker {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect);
+}
