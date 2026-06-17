@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { ExerciseResult, ExerciseStatus } from './types';
 import { useQuizContext } from './QuizContext';
 
@@ -17,6 +17,13 @@ export function useExercise<TAnswer>({ id, validate }: UseExerciseOptions<TAnswe
   const quiz = useQuizContext();
   const [status, setStatus] = useState<ExerciseStatus>('idle');
   const [result, setResult] = useState<ExerciseResult | null>(null);
+
+  // В тест-режиме упражнение само регистрируется — компонентам менять ничего не нужно.
+  useEffect(() => {
+    if (!quiz) return;
+    quiz.register(id);
+    return () => quiz.unregister(id);
+  }, [quiz, id]);
 
   const submit = useCallback(
     (answer: TAnswer) => {
